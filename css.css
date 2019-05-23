@@ -1,0 +1,14 @@
+.header
+{
+    background-color: rgb(170, 209, 223);
+    width: 100%;
+    
+}
+.score
+{
+    text-align: center;
+    font-family: "Consolas";
+    font-weight: bold;
+    font-size: 50px;
+    color: rgb(60, 60, 95);
+}
