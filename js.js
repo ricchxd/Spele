@@ -6,25 +6,49 @@ var enemy;
 
 function resulthide()
 {
+    document.getElementById("p1default").style.display="none";
     document.getElementById("p1rock").style.display="none";
     document.getElementById("p1paper").style.display="none";
     document.getElementById("p1scissors").style.display="none";
+    document.getElementById("p2default").style.display = "none";
     document.getElementById("p2rock").style.display="none";
     document.getElementById("p2paper").style.display="none";
     document.getElementById("p2scissors").style.display="none";
+}
+function showrock()
+{
+    document.getElementById("p1rock").style.display="block";
+}
+function showpaper()
+{
+    document.getElementById("p1paper").style.display="block";
+}
+function showscissors()
+{
+    document.getElementById("p1scissors").style.display="block";
 }
 
 function MyRock()
 {
     mychoice = "rock";
+    resulthide();
+    enemychoice();
+    showrock();
 }
+
 function MyPaper()
 {
     mychoice = "paper";
+    resulthide();
+    enemychoice();
+    showpaper();
 }
 function MyScissors()
 {
     mychoice = "scissors";
+    resulthide();
+    enemychoice();
+    showscissors();
 }
 
 function enemychoice()
@@ -35,16 +59,19 @@ function enemychoice()
     {
         enemyscore = 1; // rock
         ScoreSystem();
+        document.getElementById("p2rock").style.display="block";
     }
     else if(enemy == 2)
     {
         enemyscore = 2; // paper
         ScoreSystem();
+        document.getElementById("p2paper").style.display="block";
     }
     else if(enemy == 3)
     {
         enemyscore = 3; // scissors
         ScoreSystem();
+        document.getElementById("p2scissors").style.display="block";
     }
 }
 
@@ -58,10 +85,12 @@ function ScoreSystem()
         }
         else if(enemychoice == 2) // rock : paper = I lost
         {
+            enemyscore++;
             document.getElementById("score").innerHTML = myscore + ":" + enemyscore;
         }
         else if(enemychoice == 3) // rock : scissors = I won
         {
+            myscore++;
             document.getElementById("score").innerHTML = myscore + ":" + enemyscore;
         }
     }
@@ -69,6 +98,7 @@ function ScoreSystem()
     {
         if(enemychoice == 1) // paper : rock = I won
         {
+            myscore++;
             document.getElementById("score").innerHTML = myscore + ":" + enemyscore;
         }
         else if(enemychoice == 2) // paper : paper = draw
@@ -77,6 +107,7 @@ function ScoreSystem()
         }
         else if(enemychoice == 3) // rock : scissors = I lost
         {
+            enemyscore++;
             document.getElementById("score").innerHTML = myscore + ":" + enemyscore;
         }
     }
@@ -84,10 +115,12 @@ function ScoreSystem()
     {
         if(enemychoice == 1) // scissors : rock = I lost
         {
+            enemyscore++;
             document.getElementById("score").innerHTML = myscore + ":" + enemyscore;
         }
         else if(enemychoice == 2) // scissors : paper = I won
         {
+            myscore++;
             document.getElementById("score").innerHTML = myscore + ":" + enemyscore;
         }
         else if(enemychoice == 3) // scissors : scissors = draw
