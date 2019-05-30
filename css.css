@@ -9,10 +9,13 @@
 .score
 {
     justify-content: center;
+    position: relative;
+    display: flex;
+    align-content: center;
+    align-items: center;
     font-family: "Consolas";
     font-weight: bold;
-    text-align: center;
-    font-size: 50px;
+    font-size: 75px;
     color: rgb(60, 60, 95);
 }
 .boxes
