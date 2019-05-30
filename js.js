@@ -32,44 +32,45 @@ function MyRock()
 {
     mychoice = "rock";
     resulthide();
-    enemychoice();
     showrock();
+    EnemyChoice();
 }
 
 function MyPaper()
 {
     mychoice = "paper";
     resulthide();
-    enemychoice();
     showpaper();
+    EnemyChoice();
 }
 function MyScissors()
 {
     mychoice = "scissors";
     resulthide();
-    enemychoice();
     showscissors();
+    EnemyChoice();
 }
 
-function enemychoice()
+function EnemyChoice()
 {
+
     enemy = Math.floor(Math.random() * 3) + 1;
 
     if(enemy == 1)
     {
-        enemyscore = 1; // rock
+        enemychoice = "rock"; // rock
         ScoreSystem();
         document.getElementById("p2rock").style.display="block";
     }
     else if(enemy == 2)
     {
-        enemyscore = 2; // paper
+        enemychoice = "paper"; // paper
         ScoreSystem();
         document.getElementById("p2paper").style.display="block";
     }
     else if(enemy == 3)
     {
-        enemyscore = 3; // scissors
+        enemychoice = "scissors"; // scissors
         ScoreSystem();
         document.getElementById("p2scissors").style.display="block";
     }
@@ -79,51 +80,57 @@ function ScoreSystem()
 {
     if(mychoice == "rock")
     {
-        if(enemychoice == 1) // rock : rock = draw
+        if(enemychoice == "rock") // rock : rock = draw
         {
             document.getElementById("score").innerHTML = myscore + ":" + enemyscore;
+            console.log("draw");
         }
-        else if(enemychoice == 2) // rock : paper = I lost
+        else if(enemychoice == "paper") // rock : paper = I lost
         {
             enemyscore++;
             document.getElementById("score").innerHTML = myscore + ":" + enemyscore;
+            console.log("i lose");
         }
-        else if(enemychoice == 3) // rock : scissors = I won
+        else if(enemychoice == "scissors") // rock : scissors = I won
         {
             myscore++;
             document.getElementById("score").innerHTML = myscore + ":" + enemyscore;
+            console.log("i win");
         }
     }
     else if(mychoice == "paper")
     {
-        if(enemychoice == 1) // paper : rock = I won
+        if(enemychoice == "rock") // paper : rock = I won
         {
             myscore++;
             document.getElementById("score").innerHTML = myscore + ":" + enemyscore;
+            console.log("i win");
         }
-        else if(enemychoice == 2) // paper : paper = draw
+        else if(enemychoice == "paper") // paper : paper = draw
         {
             document.getElementById("score").innerHTML = myscore + ":" + enemyscore;
+            console.log("draw");
         }
-        else if(enemychoice == 3) // rock : scissors = I lost
+        else if(enemychoice == "scissors") // rock : scissors = I lost
         {
             enemyscore++;
             document.getElementById("score").innerHTML = myscore + ":" + enemyscore;
+            console.log("i lose");
         }
     }
     else if(mychoice == "scissors")
     {
-        if(enemychoice == 1) // scissors : rock = I lost
+        if(enemychoice == "rock") // scissors : rock = I lost
         {
             enemyscore++;
             document.getElementById("score").innerHTML = myscore + ":" + enemyscore;
         }
-        else if(enemychoice == 2) // scissors : paper = I won
+        else if(enemychoice == "paper") // scissors : paper = I won
         {
             myscore++;
             document.getElementById("score").innerHTML = myscore + ":" + enemyscore;
         }
-        else if(enemychoice == 3) // scissors : scissors = draw
+        else if(enemychoice == "scissors") // scissors : scissors = draw
         {
             document.getElementById("score").innerHTML = myscore + ":" + enemyscore;
         }
